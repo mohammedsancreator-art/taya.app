@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="theme-color" content="#ff4f9b">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Goals — For Her 💖</title>
+  <link rel="stylesheet" href="cv.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card container" aria-labelledby="title">
+      <h1 id="title" class="title">Welcome Taya :3</h1>
+      <p class="subtitle">enter your goal here</p>
+
+      <form id="goalForm" class="input-row" aria-label="Add a new goal">
+        <input id="goalInput" type="text" placeholder="اكتب هدفك..." aria-label="goal input" autocomplete="off" />
+        <button id="addBtn" type="submit" aria-label="Add goal">Add</button>
+      </form>
+
+      <div id="goalsList" class="goals" aria-live="polite"></div>
+
+      <div class="footer">
+        <button id="clearAll" class="ghost">مسح الكل</button>
+        <div id="progressWrap" class="progress-wrap" aria-hidden="false">
+          <div id="progressBar" class="progress-bar" style="width:0%"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Celebration overlay (hidden until needed) -->
+  <div id="celebration" class="celebration" aria-hidden="true" role="dialog" aria-live="assertive">
+    <div class="celebration-card">
+      <div class="msg">✨ You Did It! Proud of You 💗 ✨</div>
+      <button id="closeCelebrate" class="close">Close</button>
+    </div>
+
+    <!-- canvas for confetti -->
+    <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
+    <!-- hearts container -->
+    <div id="heartsContainer" class="hearts-container" aria-hidden="true"></div>
+  </div>
+
+  <script src="cv.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
+
+</body>
+</html>
